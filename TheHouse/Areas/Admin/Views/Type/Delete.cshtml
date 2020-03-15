@@ -1,0 +1,61 @@
+﻿@model TheHouse.Models.tbl_Type
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+    <section id="main-content">
+        <section class="wrapper">
+            <h2>Delete Information</h2>
+
+            <h3>Are you sure you want to delete this?</h3>
+            <div>
+                <h4>Room Type</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Type_Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Type_Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Type_Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Type_Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Type_Status)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Type_Status)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.tbl_Category.Cat_Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tbl_Category.Cat_Name)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default" /> |
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                }
+            </div>
+        </section>
+</section>

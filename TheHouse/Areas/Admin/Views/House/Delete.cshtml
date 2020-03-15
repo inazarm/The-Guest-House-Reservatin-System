@@ -1,0 +1,94 @@
+﻿@model TheHouse.Models.tbl_House
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+
+        <h2>Guest House Delete</h2>
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>tbl_House</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.H_Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.H_Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.H_Location)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.H_Location)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.H_City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.H_City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.H_Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.H_Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.H_NoOfRoom)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.H_NoOfRoom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.H_Image)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.H_Image)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.H_Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.H_Status)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.tbl_User.FullName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.tbl_User.FullName)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>
+    </section>
+</section>

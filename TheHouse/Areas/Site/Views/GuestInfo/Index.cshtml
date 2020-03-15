@@ -1,0 +1,89 @@
+﻿@model TheHouse.Models.tbl_Guest
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Site/Views/Shared/_Layout.cshtml";
+}
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle">Enter Guest Information</h2>
+        </div>
+    </div>
+</section>
+<br />
+<div class="container register">
+    <div class="row">
+        <div class="col-md-2 register-left">
+        </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"><b class="text-uppercase">Please Enter Guest Information</b></a>
+                </li>
+                <li class="nav-item"><a href="@Url.Action("Index","LoginGuest",new {area="Site" })"> <b class="fa fa-sign-in">Already memeber? Click here...</b></a></li>
+            </ul>
+            <!--================Breadcrumb Area =================-->
+            @using (Html.BeginForm("Index","GuestInfo",FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading"></h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.G_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Guest Full Name", @Required="True" } })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.G_Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @placeholder = "Your Email Address", @Required="True" } })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.G_Pass, new { htmlAttributes = new { @class = "form-control", @type = "Password", @placeholder = "Your Password", @Required="True" } })
+                                </div>
+                                <div class="form-group">
+                                   @Html.EditorFor(model => model.G_Phone, new { htmlAttributes = new { @class = "form-control", @type = "Phone", @placeholder = "Your Phone Number", @Required="True" } })
+                                  
+                                </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <span>Male @Html.RadioButtonFor(model => model.G_Gender, "Male", new { htmlAttributes = new { @class = "form-control", @Required="True" } }) </span>
+                                        </label>
+                                        <label class="radio inline">
+                                           
+                                            <span>Female @Html.RadioButtonFor(model => model.G_Gender, "Female", new { htmlAttributes = new { @class = "form-control", @Required="True" } }) </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                   
+                                    @Html.EditorFor(model => model.G_City, new { htmlAttributes = new { @class = "form-control", @placeholder = "City", @Required="True" } })
+                                </div>
+                                <div class="form-group">
+                                    
+                                    @Html.EditorFor(model => model.G_Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Country", @Required="True" } })
+                                </div>
+                                <div class="form-group">
+                                    
+                                    @Html.EditorFor(model => model.G_CNIC, new { htmlAttributes = new { @class = "form-control", @placeholder = "CNIC Number", @Required="True" } })
+                                </div>
+                                <div class="form-group">
+                                   
+                                    @Html.EditorFor(model => model.G_Passport, new { htmlAttributes = new { @class = "form-control", @placeholder = "Passport Number" } })
+                                </div>
+                                
+                                <input type="submit" class="btn btn-dark" value="Proceed To Booking" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             }
+        </div>
+    </div>
+</div>

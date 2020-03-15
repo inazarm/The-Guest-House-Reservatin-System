@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .Image{
+        display:block;
+        width:100%;
+        height:auto;
+    }
+    .overlay{
+        position:absolute;
+        bottom:0;background:rgb(0,0,0);
+        background:rgba(0,0,0,0.5);
+        color:#f1f1f1;
+        width:100%;
+        transition:.5s ease;
+        opacity:0;color:white;font-size:20px;padding:20px;text-align:center;
+    }
+
+    #ProfileImg:hover .overlay{
+        opacity:1;
+    }
+</style>
+<section id="main-content">
+    <section class="wrapper">
+        <div style="float:right" class="col-sm-2" id="ProfileImg">
+            @{
+                TheHouse.Models.tbl_User user = (TheHouse.Models.tbl_User)Session["app"];
+            }
+            <img src="~/Content/ProfileImg/@user.UserImage" alt="No-Images" height="180" width="140" class="Image" />
+            <div class="overlay">Edit Image</div>
+
+        </div>
+        <div class="form-group col-md-10" style="margin-top:20px">
+            <label class="control-label col-md-10" for="fname">Name:</label>
+            <div class="col-md-8">
+                <label class="form-control">@user.FullName</label>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname">Email:</label>
+            <div class="col-md-8">
+                <label class="form-control">@user.UserEmail</label>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname">Password:</label>
+            <div class="col-md-8">
+                <label class="form-control">@user.UserPass</label>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname">Phone:</label>
+            <div class="col-md-8">
+                <label class="form-control">@user.UserContact</label>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname">Address:</label>
+            <div class="col-md-8">
+                <label class="form-control">@user.UserAddress</label>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname">Account Creation Date:</label>
+            <div class="col-md-8">
+                <label class="form-control">@user.CreatedDate</label>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname">Role:</label>
+            <div class="col-md-8">
+                <label class="form-control">@user.UserType</label>
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname">Status:</label>
+            <div class="col-md-8">
+                @{
+                    if (user.isActive == true)
+                    {
+                        <label class="form-control">Active</label>
+                    }
+                    else
+                    {
+                        <label class="form-control">InActive</label>
+                    }
+                }
+            </div>
+        </div>
+        <div class="form-group col-md-10">
+            <label class="control-label col-md-10" for="fname"></label>
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-default">Want to edit your Profile? Yes </button>
+            </div>
+        </div>
+    </section>
+</section>

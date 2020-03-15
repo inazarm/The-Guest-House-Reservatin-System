@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TheHouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Booking">
+    <Key>
+      <PropertyRef Name="B_Id" />
+    </Key>
+    <Property Name="B_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArrivalDate" Type="date" />
+    <Property Name="DepartureDate" Type="date" />
+    <Property Name="TotalPerson" Type="int" />
+    <Property Name="BookedBy" Type="varchar" MaxLength="100" />
+    <Property Name="Booking_Date" Type="date" />
+    <Property Name="B_Status" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_BookingBridge">
+    <Key>
+      <PropertyRef Name="BB_ID" />
+    </Key>
+    <Property Name="BB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_BookingID" Type="int" />
+    <Property Name="FK_HouseID" Type="int" />
+    <Property Name="FK_RoomID" Type="int" />
+    <Property Name="FK_GuestID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_CardDetails">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_GuestID" Type="int" />
+    <Property Name="Card_Type" Type="varchar" MaxLength="10" />
+    <Property Name="Card_Number" Type="nvarchar" MaxLength="20" />
+    <Property Name="ExpiryDate" Type="nvarchar" MaxLength="20" />
+    <Property Name="NameOnCard" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="Cat_Id" />
+    </Key>
+    <Property Name="Cat_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_HouseID" Type="int" />
+    <Property Name="Cat_Name" Type="varchar(max)" />
+    <Property Name="Cat_Description" Type="text" />
+    <Property Name="Cat_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Guest">
+    <Key>
+      <PropertyRef Name="G_Id" />
+    </Key>
+    <Property Name="G_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="G_Name" Type="varchar" MaxLength="100" />
+    <Property Name="G_Email" Type="varchar" MaxLength="100" />
+    <Property Name="G_Pass" Type="varchar" MaxLength="20" />
+    <Property Name="G_Phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="G_Gender" Type="varchar" MaxLength="20" />
+    <Property Name="G_City" Type="varchar" MaxLength="100" />
+    <Property Name="G_Country" Type="varchar" MaxLength="100" />
+    <Property Name="G_CNIC" Type="varchar" MaxLength="20" />
+    <Property Name="G_Passport" Type="varchar" MaxLength="30" />
+    <Property Name="G_Status" Type="char" MaxLength="1" />
+    <Property Name="Type" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="tbl_House">
+    <Key>
+      <PropertyRef Name="H_ID" />
+    </Key>
+    <Property Name="H_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_UserID" Type="int" Nullable="false" />
+    <Property Name="H_Name" Type="varchar(max)" />
+    <Property Name="H_Location" Type="varchar(max)" />
+    <Property Name="H_City" Type="varchar(max)" />
+    <Property Name="H_Address" Type="varchar(max)" />
+    <Property Name="H_NoOfRoom" Type="int" />
+    <Property Name="H_Image" Type="nvarchar(max)" />
+    <Property Name="H_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Payment">
+    <Key>
+      <PropertyRef Name="P_Id" />
+    </Key>
+    <Property Name="P_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PK_BookingBridgeID" Type="int" />
+    <Property Name="Total_Amount" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tbl_RoomCharges">
+    <Key>
+      <PropertyRef Name="RC_Id" />
+    </Key>
+    <Property Name="RC_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_TypeID" Type="int" />
+    <Property Name="FK_CatID" Type="int" />
+    <Property Name="Charges" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_RoomsDetails">
+    <Key>
+      <PropertyRef Name="R_Id" />
+    </Key>
+    <Property Name="R_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_HouseID" Type="int" />
+    <Property Name="FK_TypeID" Type="int" />
+    <Property Name="FK_CateID" Type="int" />
+    <Property Name="R_Desc" Type="varchar" MaxLength="200" />
+    <Property Name="R_Capacity" Type="int" />
+    <Property Name="R_Image" Type="nvarchar(max)" />
+    <Property Name="R_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Type">
+    <Key>
+      <PropertyRef Name="Type_Id" />
+    </Key>
+    <Property Name="Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_CateID" Type="int" />
+    <Property Name="Type_Name" Type="varchar(max)" />
+    <Property Name="Type_Description" Type="text" />
+    <Property Name="Type_Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="100" />
+    <Property Name="UserEmail" Type="varchar" MaxLength="100" />
+    <Property Name="UserPass" Type="varchar" MaxLength="20" />
+    <Property Name="UserContact" Type="varchar" MaxLength="20" />
+    <Property Name="UserAddress" Type="varchar" MaxLength="200" />
+    <Property Name="UserImage" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="nvarchar(max)" />
+    <Property Name="UserType" Type="varchar" MaxLength="20" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <Association Name="FK_tbl_BookingBridge_tbl_Booking">
+    <End Role="tbl_Booking" Type="Self.tbl_Booking" Multiplicity="0..1" />
+    <End Role="tbl_BookingBridge" Type="Self.tbl_BookingBridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Booking">
+        <PropertyRef Name="B_Id" />
+      </Principal>
+      <Dependent Role="tbl_BookingBridge">
+        <PropertyRef Name="FK_BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BookingBridge_tbl_Guest">
+    <End Role="tbl_Guest" Type="Self.tbl_Guest" Multiplicity="0..1" />
+    <End Role="tbl_BookingBridge" Type="Self.tbl_BookingBridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Guest">
+        <PropertyRef Name="G_Id" />
+      </Principal>
+      <Dependent Role="tbl_BookingBridge">
+        <PropertyRef Name="FK_GuestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BookingBridge_tbl_House">
+    <End Role="tbl_House" Type="Self.tbl_House" Multiplicity="0..1" />
+    <End Role="tbl_BookingBridge" Type="Self.tbl_BookingBridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_House">
+        <PropertyRef Name="H_ID" />
+      </Principal>
+      <Dependent Role="tbl_BookingBridge">
+        <PropertyRef Name="FK_HouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_BookingBridge_tbl_RoomsDetails">
+    <End Role="tbl_RoomsDetails" Type="Self.tbl_RoomsDetails" Multiplicity="0..1" />
+    <End Role="tbl_BookingBridge" Type="Self.tbl_BookingBridge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_RoomsDetails">
+        <PropertyRef Name="R_Id" />
+      </Principal>
+      <Dependent Role="tbl_BookingBridge">
+        <PropertyRef Name="FK_RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_CardDetails_tbl_Guest">
+    <End Role="tbl_Guest" Type="Self.tbl_Guest" Multiplicity="0..1" />
+    <End Role="tbl_CardDetails" Type="Self.tbl_CardDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Guest">
+        <PropertyRef Name="G_Id" />
+      </Principal>
+      <Dependent Role="tbl_CardDetails">
+        <PropertyRef Name="FK_GuestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Category_tbl_House">
+    <End Role="tbl_House" Type="Self.tbl_House" Multiplicity="0..1" />
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_House">
+        <PropertyRef Name="H_ID" />
+      </Principal>
+      <Dependent Role="tbl_Category">
+        <PropertyRef Name="FK_HouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_House_tbl_User">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="1" />
+    <End Role="tbl_House" Type="Self.tbl_House" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="tbl_House">
+        <PropertyRef Name="FK_UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Payment_tbl_BookingBridge">
+    <End Role="tbl_BookingBridge" Type="Self.tbl_BookingBridge" Multiplicity="0..1" />
+    <End Role="tbl_Payment" Type="Self.tbl_Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_BookingBridge">
+        <PropertyRef Name="BB_ID" />
+      </Principal>
+      <Dependent Role="tbl_Payment">
+        <PropertyRef Name="PK_BookingBridgeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_RoomCharges_tbl_Category">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_RoomCharges" Type="Self.tbl_RoomCharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="Cat_Id" />
+      </Principal>
+      <Dependent Role="tbl_RoomCharges">
+        <PropertyRef Name="FK_CatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_RoomCharges_tbl_Type">
+    <End Role="tbl_Type" Type="Self.tbl_Type" Multiplicity="0..1" />
+    <End Role="tbl_RoomCharges" Type="Self.tbl_RoomCharges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Type">
+        <PropertyRef Name="Type_Id" />
+      </Principal>
+      <Dependent Role="tbl_RoomCharges">
+        <PropertyRef Name="FK_TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_RoomsDetails_tbl_Category">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_RoomsDetails" Type="Self.tbl_RoomsDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="Cat_Id" />
+      </Principal>
+      <Dependent Role="tbl_RoomsDetails">
+        <PropertyRef Name="FK_CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_RoomsDetails_tbl_House">
+    <End Role="tbl_House" Type="Self.tbl_House" Multiplicity="0..1" />
+    <End Role="tbl_RoomsDetails" Type="Self.tbl_RoomsDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_House">
+        <PropertyRef Name="H_ID" />
+      </Principal>
+      <Dependent Role="tbl_RoomsDetails">
+        <PropertyRef Name="FK_HouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_RoomsDetails_tbl_Type">
+    <End Role="tbl_Type" Type="Self.tbl_Type" Multiplicity="0..1" />
+    <End Role="tbl_RoomsDetails" Type="Self.tbl_RoomsDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Type">
+        <PropertyRef Name="Type_Id" />
+      </Principal>
+      <Dependent Role="tbl_RoomsDetails">
+        <PropertyRef Name="FK_TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Type_tbl_Category">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="0..1" />
+    <End Role="tbl_Type" Type="Self.tbl_Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="Cat_Id" />
+      </Principal>
+      <Dependent Role="tbl_Type">
+        <PropertyRef Name="FK_CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_RoomCategoryByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_RoomDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_SelectHouseDetailById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SelectUserDetailById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="TheHouseModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Booking" EntityType="Self.tbl_Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BookingBridge" EntityType="Self.tbl_BookingBridge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_CardDetails" EntityType="Self.tbl_CardDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Guest" EntityType="Self.tbl_Guest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_House" EntityType="Self.tbl_House" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Payment" EntityType="Self.tbl_Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RoomCharges" EntityType="Self.tbl_RoomCharges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RoomsDetails" EntityType="Self.tbl_RoomsDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Type" EntityType="Self.tbl_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_BookingBridge_tbl_Booking" Association="Self.FK_tbl_BookingBridge_tbl_Booking">
+      <End Role="tbl_Booking" EntitySet="tbl_Booking" />
+      <End Role="tbl_BookingBridge" EntitySet="tbl_BookingBridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BookingBridge_tbl_Guest" Association="Self.FK_tbl_BookingBridge_tbl_Guest">
+      <End Role="tbl_Guest" EntitySet="tbl_Guest" />
+      <End Role="tbl_BookingBridge" EntitySet="tbl_BookingBridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BookingBridge_tbl_House" Association="Self.FK_tbl_BookingBridge_tbl_House">
+      <End Role="tbl_House" EntitySet="tbl_House" />
+      <End Role="tbl_BookingBridge" EntitySet="tbl_BookingBridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_BookingBridge_tbl_RoomsDetails" Association="Self.FK_tbl_BookingBridge_tbl_RoomsDetails">
+      <End Role="tbl_RoomsDetails" EntitySet="tbl_RoomsDetails" />
+      <End Role="tbl_BookingBridge" EntitySet="tbl_BookingBridge" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_CardDetails_tbl_Guest" Association="Self.FK_tbl_CardDetails_tbl_Guest">
+      <End Role="tbl_Guest" EntitySet="tbl_Guest" />
+      <End Role="tbl_CardDetails" EntitySet="tbl_CardDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Category_tbl_House" Association="Self.FK_tbl_Category_tbl_House">
+      <End Role="tbl_House" EntitySet="tbl_House" />
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_House_tbl_User" Association="Self.FK_tbl_House_tbl_User">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_House" EntitySet="tbl_House" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Payment_tbl_BookingBridge" Association="Self.FK_tbl_Payment_tbl_BookingBridge">
+      <End Role="tbl_BookingBridge" EntitySet="tbl_BookingBridge" />
+      <End Role="tbl_Payment" EntitySet="tbl_Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_RoomCharges_tbl_Category" Association="Self.FK_tbl_RoomCharges_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_RoomCharges" EntitySet="tbl_RoomCharges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_RoomCharges_tbl_Type" Association="Self.FK_tbl_RoomCharges_tbl_Type">
+      <End Role="tbl_Type" EntitySet="tbl_Type" />
+      <End Role="tbl_RoomCharges" EntitySet="tbl_RoomCharges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_RoomsDetails_tbl_Category" Association="Self.FK_tbl_RoomsDetails_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_RoomsDetails" EntitySet="tbl_RoomsDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_RoomsDetails_tbl_House" Association="Self.FK_tbl_RoomsDetails_tbl_House">
+      <End Role="tbl_House" EntitySet="tbl_House" />
+      <End Role="tbl_RoomsDetails" EntitySet="tbl_RoomsDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_RoomsDetails_tbl_Type" Association="Self.FK_tbl_RoomsDetails_tbl_Type">
+      <End Role="tbl_Type" EntitySet="tbl_Type" />
+      <End Role="tbl_RoomsDetails" EntitySet="tbl_RoomsDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Type_tbl_Category" Association="Self.FK_tbl_Type_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Type" EntitySet="tbl_Type" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

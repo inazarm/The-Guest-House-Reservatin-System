@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TheHouse.Models.tbl_House>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td class="text-center"><img src="~/Content/HotelImg/@item.H_Image" height="80" width="70" class="img img-rounded" alt="No Image" /></td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.H_Name)</td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.H_NoOfRoom)</td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.H_Location) </td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.H_Address) </td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.H_City) </td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.tbl_User.FullName) </td>
+        <td class="text-center">@Html.DisplayFor(modelItem => item.H_Status)</td>
+        <td>
+            <a href="@Url.Action("Edit","House",new{id=item.H_ID})"><span class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></span></a>
+            <a href="@Url.Action("Delete","House",new{id=item.H_ID})"><span class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></span></a>
+            
+        </td>
+    </tr>
+
+}

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TheHouse.Models.tbl_RoomsDetails>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row mt">
+            <div class="col-md-12">
+                <div class="content-panel">
+                    <h4 class="text-uppercase">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-home"></i> Rooms Information</h4>
+                    <div style="margin-left:50px;border:1px solid #64c3c2 !important; color:white; width:15%;
+                                text-decoration:none;background-color:#4ECDC4; border-radius:3px;text-align:center;">
+                        <h5>
+                            <span class="fa fa-plus-square">@Html.ActionLink(" Add New Room", "Create")</span>
+                        </h5>
+                    </div>
+                    <hr>
+                    <table class="table table-striped table-advance table-hover">
+                        <thead>
+                            <tr>
+                                <th><i class=" fa fa-bars"></i> House Name</th>
+                                <th><i class="fa fa-home"></i> Category</th>
+                                <th><i class="fa fa-arrow-circle-down"></i> Type</th>
+                                <th><i class="fa fa-audio-description"></i> Capacity</th>
+                                <th><i class="fa fa-audio-description"></i> Room Description</th>
+                                <th><i class="fa fa-audio-description"></i> Images</th>
+                                <th><i class="fa fa-audio-description"></i> Status</th>
+                                <th><i class="fa fa-edit"></i> Action</th>
+                                <th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.tbl_House.H_Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.tbl_Category.Cat_Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.tbl_Type.Type_Name) </td>
+                                    <td>@Html.DisplayFor(modelItem => item.R_Capacity)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.R_Desc)</td>
+                                    <td><img src="~/Content/RoomImages/@item.R_Image" width="65" height="70" class="img img-thumbnail" /></td>
+                                    <td>@Html.DisplayFor(modelItem => item.R_Status)</td>
+                                    <td>
+                                        <a href="@Url.Action("Edit",new{id=item.R_Id})"><span class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></span></a>
+                                        <a href="@Url.Action("Delete",new{id=item.R_Id})"><span class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                </div>
+                <!-- /content-panel -->
+            </div>
+            <!-- /col-md-12 -->
+        </div>
+
+
+        <table class="table">
+        </table>
+    </section>
+</section>

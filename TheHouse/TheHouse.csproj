@@ -1,0 +1,664 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.4.0-beta3-final\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.4.0-beta3-final\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD9791D5-94D5-4E42-968E-5B74DE051C95}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheHouse</RootNamespace>
+    <AssemblyName>TheHouse</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0-preview2-19525-03\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0-preview2-19525-03\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\css\style-responsive.css" />
+    <Content Include="Content\Admin\css\style.css" />
+    <Content Include="Content\Admin\css\table-responsive.css" />
+    <Content Include="Content\Admin\css\to-do.css" />
+    <Content Include="Content\Admin\css\zabuto_calendar.css" />
+    <Content Include="Content\Admin\img\404.png" />
+    <Content Include="Content\Admin\img\500.png" />
+    <Content Include="Content\Admin\img\apple-touch-icon.png" />
+    <Content Include="Content\Admin\img\blog-bg.jpg" />
+    <Content Include="Content\Admin\img\checkbox-gray.png" />
+    <Content Include="Content\Admin\img\favicon.png" />
+    <Content Include="Content\Admin\img\friends\fr-01.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-02.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-03.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-04.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-05.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-06.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-07.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-08.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-09.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-10.jpg" />
+    <Content Include="Content\Admin\img\friends\fr-11.jpg" />
+    <Content Include="Content\Admin\img\instagram.jpg" />
+    <Content Include="Content\Admin\img\login-bg.jpg" />
+    <Content Include="Content\Admin\img\lorde.jpg" />
+    <Content Include="Content\Admin\img\mask.png" />
+    <Content Include="Content\Admin\img\ny.jpg" />
+    <Content Include="Content\Admin\img\portfolio\port01.jpg" />
+    <Content Include="Content\Admin\img\portfolio\port02.jpg" />
+    <Content Include="Content\Admin\img\portfolio\port03.jpg" />
+    <Content Include="Content\Admin\img\portfolio\port04.jpg" />
+    <Content Include="Content\Admin\img\portfolio\port05.jpg" />
+    <Content Include="Content\Admin\img\portfolio\port06.jpg" />
+    <Content Include="Content\Admin\img\product.jpg" />
+    <Content Include="Content\Admin\img\profile-01.jpg" />
+    <Content Include="Content\Admin\img\profile-02.jpg" />
+    <Content Include="Content\Admin\img\radio-gray.png" />
+    <Content Include="Content\Admin\img\ui-danro.jpg" />
+    <Content Include="Content\Admin\img\ui-divya.jpg" />
+    <Content Include="Content\Admin\img\ui-sam.jpg" />
+    <Content Include="Content\Admin\img\ui-sherman.jpg" />
+    <Content Include="Content\Admin\img\ui-zac.jpg" />
+    <Content Include="Content\Admin\img\weather.jpg" />
+    <Content Include="Content\Admin\img\zoom.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\css\demo_page.css" />
+    <Content Include="Content\Admin\lib\advanced-datatable\css\demo_table.css" />
+    <Content Include="Content\Admin\lib\advanced-datatable\css\demo_table_jui.css" />
+    <Content Include="Content\Admin\lib\advanced-datatable\css\DT_bootstrap.css" />
+    <Content Include="Content\Admin\lib\advanced-datatable\css\jquery.dataTables.css" />
+    <Content Include="Content\Admin\lib\advanced-datatable\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\back_disabled.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\back_enabled.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\back_enabled_hover.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\details_close.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\details_open.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\favicon.ico" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\forward_disabled.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\forward_enabled.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\forward_enabled_hover.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\sort_asc.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\sort_asc_disabled.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\sort_both.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\sort_desc.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\sort_desc_disabled.png" />
+    <Content Include="Content\Admin\lib\advanced-datatable\js\DT_bootstrap.js" />
+    <Content Include="Content\Admin\lib\advanced-datatable\js\jquery.dataTables.js" />
+    <Content Include="Content\Admin\lib\advanced-datatable\js\jquery.dataTables.min.js" />
+    <Content Include="Content\Admin\lib\advanced-datatable\js\jquery.js" />
+    <Content Include="Content\Admin\lib\advanced-form-components.js" />
+    <Content Include="Content\Admin\lib\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Content\Admin\lib\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\Admin\lib\bootstrap-daterangepicker\date.js" />
+    <Content Include="Content\Admin\lib\bootstrap-daterangepicker\daterangepicker-bs3.css" />
+    <Content Include="Content\Admin\lib\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Content\Admin\lib\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Content\Admin\lib\bootstrap-daterangepicker\moment.min.js" />
+    <Content Include="Content\Admin\lib\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="Content\Admin\lib\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\Admin\lib\bootstrap-fileupload\bootstrap-fileupload.css" />
+    <Content Include="Content\Admin\lib\bootstrap-fileupload\bootstrap-fileupload.js" />
+    <Content Include="Content\Admin\lib\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="Content\Admin\lib\bootstrap-switch.js" />
+    <Content Include="Content\Admin\lib\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="Content\Admin\lib\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Content\Admin\lib\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="Content\Admin\lib\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="Content\Admin\lib\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="Content\Admin\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Admin\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Admin\lib\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Admin\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\lib\calendar-conf-events.js" />
+    <Content Include="Content\Admin\lib\chart-master\Chart.js" />
+    <Content Include="Content\Admin\lib\chartjs-conf.js" />
+    <Content Include="Content\Admin\lib\ckeditor\ckeditor.js" />
+    <Content Include="Content\Admin\lib\common-scripts.js" />
+    <Content Include="Content\Admin\lib\dropzone\css\dropzone.css" />
+    <Content Include="Content\Admin\lib\dropzone\dropzone.js" />
+    <Content Include="Content\Admin\lib\dropzone\images\spritemap%402x.png" />
+    <Content Include="Content\Admin\lib\dropzone\images\spritemap.png" />
+    <Content Include="Content\Admin\lib\easy-pie-chart.js" />
+    <Content Include="Content\Admin\lib\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\Admin\lib\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\Admin\lib\file-uploader\css\jquery.fileupload-noscript.css" />
+    <Content Include="Content\Admin\lib\file-uploader\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\Admin\lib\file-uploader\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\Admin\lib\file-uploader\css\jquery.fileupload.css" />
+    <Content Include="Content\Admin\lib\file-uploader\img\loading.gif" />
+    <Content Include="Content\Admin\lib\file-uploader\img\progressbar.gif" />
+    <Content Include="Content\Admin\lib\file-uploader\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.fileupload-audio.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.fileupload-image.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.fileupload-process.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.fileupload-validate.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.fileupload-video.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.fileupload.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\jquery.iframe-transport.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\main.js" />
+    <Content Include="Content\Admin\lib\file-uploader\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\Admin\lib\flotchart-conf.js" />
+    <Content Include="Content\Admin\lib\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\Admin\lib\flot\jquery.flot.js" />
+    <Content Include="Content\Admin\lib\flot\jquery.flot.pie.js" />
+    <Content Include="Content\Admin\lib\flot\jquery.flot.resize.js" />
+    <Content Include="Content\Admin\lib\flot\jquery.flot.stack.js" />
+    <Content Include="Content\Admin\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Admin\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Admin\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Admin\lib\form-component.js" />
+    <Content Include="Content\Admin\lib\form-validation-script.js" />
+    <Content Include="Content\Admin\lib\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="Content\Admin\lib\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Content\Admin\lib\google-maps\data\points.js" />
+    <Content Include="Content\Admin\lib\google-maps\maplace.js" />
+    <Content Include="Content\Admin\lib\gritter-conf.js" />
+    <Content Include="Content\Admin\lib\gritter\css\jquery.gritter.css" />
+    <Content Include="Content\Admin\lib\gritter\css\jquery.gritter0.css" />
+    <Content Include="Content\Admin\lib\gritter\images\gritter-light.png" />
+    <Content Include="Content\Admin\lib\gritter\images\gritter-long.png" />
+    <Content Include="Content\Admin\lib\gritter\images\gritter.png" />
+    <Content Include="Content\Admin\lib\gritter\images\ie-spacer.gif" />
+    <Content Include="Content\Admin\lib\gritter\js\jquery.gritter.js" />
+    <Content Include="Content\Admin\lib\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
+    <Content Include="Content\Admin\lib\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="Content\Admin\lib\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="Content\Admin\lib\jquery.backstretch.min.js" />
+    <Content Include="Content\Admin\lib\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="Content\Admin\lib\jquery.nicescroll.js" />
+    <Content Include="Content\Admin\lib\jquery.scrollTo.min.js" />
+    <Content Include="Content\Admin\lib\jquery.sparkline.js" />
+    <Content Include="Content\Admin\lib\jquery.tagsinput.js" />
+    <Content Include="Content\Admin\lib\jquery.ui.touch-punch.min.js" />
+    <Content Include="Content\Admin\lib\jquery\jquery.js" />
+    <Content Include="Content\Admin\lib\jquery\jquery.min.js" />
+    <Content Include="Content\Admin\lib\morris-conf.js" />
+    <Content Include="Content\Admin\lib\morris\morris.min.js" />
+    <Content Include="Content\Admin\lib\php-mail-form\validate.js" />
+    <Content Include="Content\Admin\lib\raphael\raphael.min.js" />
+    <Content Include="Content\Admin\lib\sparkline-chart.js" />
+    <Content Include="Content\Admin\lib\tasks.js" />
+    <Content Include="Content\Admin\lib\xchart\d3.v3.min.js" />
+    <Content Include="Content\Admin\lib\xchart\xcharts.css" />
+    <Content Include="Content\Admin\lib\xchart\xcharts.min.js" />
+    <Content Include="Content\Admin\lib\zabuto_calendar.js" />
+    <Content Include="Content\ProfileImg\default.png" />
+    <Content Include="Content\RoomImages\Room3ef08dda-9ad3-4c62-8d64-fb7ffcce24f5 .png" />
+    <Content Include="Content\RoomImages\Room45e02f1f-efa9-4b59-8662-a9a4debb701f .jpg" />
+    <Content Include="Content\Site\css\bootstrap.css" />
+    <Content Include="Content\Site\css\font-awesome.min.css" />
+    <Content Include="Content\Site\css\responsive.css" />
+    <Content Include="Content\Site\css\style %28Mohammad Rocky%27s conflicted copy 2018-05-08%29.css" />
+    <Content Include="Content\Site\css\style.css" />
+    <Content Include="Content\Site\css\_elements.css" />
+    <Content Include="Content\Site\css\_footer.css" />
+    <Content Include="Content\Site\css\_testimonial.css" />
+    <Content Include="Content\Site\css\_variables.css" />
+    <Content Include="Content\Site\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Site\image\about_banner.jpg" />
+    <Content Include="Content\Site\image\about_bg.jpg" />
+    <Content Include="Content\Site\image\banner\banner-1.jpg" />
+    <Content Include="Content\Site\image\banner\banner-2.jpg" />
+    <Content Include="Content\Site\image\banner_bg.jpg" />
+    <Content Include="Content\Site\image\blog\add.jpg" />
+    <Content Include="Content\Site\image\blog\author.png" />
+    <Content Include="Content\Site\image\blog\blog-1.jpg" />
+    <Content Include="Content\Site\image\blog\blog-2.jpg" />
+    <Content Include="Content\Site\image\blog\blog-3.jpg" />
+    <Content Include="Content\Site\image\blog\c1.jpg" />
+    <Content Include="Content\Site\image\blog\c2.jpg" />
+    <Content Include="Content\Site\image\blog\c3.jpg" />
+    <Content Include="Content\Site\image\blog\c4.jpg" />
+    <Content Include="Content\Site\image\blog\c5.jpg" />
+    <Content Include="Content\Site\image\blog\c6.jpg" />
+    <Content Include="Content\Site\image\blog\cat-post\cat-post-1.jpg" />
+    <Content Include="Content\Site\image\blog\cat-post\cat-post-2.jpg" />
+    <Content Include="Content\Site\image\blog\cat-post\cat-post-3.jpg" />
+    <Content Include="Content\Site\image\blog\feature-img1.jpg" />
+    <Content Include="Content\Site\image\blog\main-blog\m-blog-1.jpg" />
+    <Content Include="Content\Site\image\blog\main-blog\m-blog-2.jpg" />
+    <Content Include="Content\Site\image\blog\main-blog\m-blog-3.jpg" />
+    <Content Include="Content\Site\image\blog\main-blog\m-blog-4.jpg" />
+    <Content Include="Content\Site\image\blog\main-blog\m-blog-5.jpg" />
+    <Content Include="Content\Site\image\blog\next.jpg" />
+    <Content Include="Content\Site\image\blog\post-img1.jpg" />
+    <Content Include="Content\Site\image\blog\post-img2.jpg" />
+    <Content Include="Content\Site\image\blog\post1.jpg" />
+    <Content Include="Content\Site\image\blog\post2.jpg" />
+    <Content Include="Content\Site\image\blog\post3.jpg" />
+    <Content Include="Content\Site\image\blog\post4.jpg" />
+    <Content Include="Content\Site\image\blog\prev.jpg" />
+    <Content Include="Content\Site\image\blog\s-img.jpg" />
+    <Content Include="Content\Site\image\elements\a.jpg" />
+    <Content Include="Content\Site\image\elements\a2.jpg" />
+    <Content Include="Content\Site\image\elements\d.jpg" />
+    <Content Include="Content\Site\image\elements\disabled-check.png" />
+    <Content Include="Content\Site\image\elements\disabled-radio.png" />
+    <Content Include="Content\Site\image\elements\f1.jpg" />
+    <Content Include="Content\Site\image\elements\f2.jpg" />
+    <Content Include="Content\Site\image\elements\f3.jpg" />
+    <Content Include="Content\Site\image\elements\f4.jpg" />
+    <Content Include="Content\Site\image\elements\f5.jpg" />
+    <Content Include="Content\Site\image\elements\f6.jpg" />
+    <Content Include="Content\Site\image\elements\f7.jpg" />
+    <Content Include="Content\Site\image\elements\f8.jpg" />
+    <Content Include="Content\Site\image\elements\g1.jpg" />
+    <Content Include="Content\Site\image\elements\g2.jpg" />
+    <Content Include="Content\Site\image\elements\g3.jpg" />
+    <Content Include="Content\Site\image\elements\g4.jpg" />
+    <Content Include="Content\Site\image\elements\g5.jpg" />
+    <Content Include="Content\Site\image\elements\g6.jpg" />
+    <Content Include="Content\Site\image\elements\g7.jpg" />
+    <Content Include="Content\Site\image\elements\g8.jpg" />
+    <Content Include="Content\Site\image\elements\primary-check.png" />
+    <Content Include="Content\Site\image\elements\primary-radio.png" />
+    <Content Include="Content\Site\image\elements\success-check.png" />
+    <Content Include="Content\Site\image\elements\success-radio.png" />
+    <Content Include="Content\Site\image\elements\user1.png" />
+    <Content Include="Content\Site\image\elements\user2.png" />
+    <Content Include="Content\Site\image\facilites_bg.jpg" />
+    <Content Include="Content\Site\image\favicon.png" />
+    <Content Include="Content\Site\image\gallery\01-1.jpg" />
+    <Content Include="Content\Site\image\gallery\01.jpg" />
+    <Content Include="Content\Site\image\gallery\02-1.jpg" />
+    <Content Include="Content\Site\image\gallery\02.jpg" />
+    <Content Include="Content\Site\image\gallery\03-1.jpg" />
+    <Content Include="Content\Site\image\gallery\03.jpg" />
+    <Content Include="Content\Site\image\gallery\04.jpg" />
+    <Content Include="Content\Site\image\gallery\05.jpg" />
+    <Content Include="Content\Site\image\gallery\06.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-01.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-02.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-03.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-04.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-05.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-06.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-07.jpg" />
+    <Content Include="Content\Site\image\instagram\Image-08.jpg" />
+    <Content Include="Content\Site\image\logo-2.png" />
+    <Content Include="Content\Site\image\Logo.png" />
+    <Content Include="Content\Site\image\room1.jpg" />
+    <Content Include="Content\Site\image\room2.jpg" />
+    <Content Include="Content\Site\image\room3.jpg" />
+    <Content Include="Content\Site\image\room4.jpg" />
+    <Content Include="Content\Site\image\testtimonial-1.jpg" />
+    <Content Include="Content\Site\image\testtimonial-2.jpg" />
+    <Content Include="Content\Site\js\bootstrap.min.js" />
+    <Content Include="Content\Site\js\contact.js" />
+    <Content Include="Content\Site\js\custom.js" />
+    <Content Include="Content\Site\js\gmaps.min.js" />
+    <Content Include="Content\Site\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\Site\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Content\Site\js\jquery.form.js" />
+    <Content Include="Content\Site\js\jquery.validate.min.js" />
+    <Content Include="Content\Site\js\mail-script.js" />
+    <Content Include="Content\Site\js\popper.js" />
+    <Content Include="Content\Site\js\stellar.js" />
+    <Content Include="Content\Site\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Site\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Site\vendors\bootstrap-datepicker\bootstrap-select.css" />
+    <Content Include="Content\Site\vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <Content Include="Content\Site\vendors\imagesloaded\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\Site\vendors\isotope\isotope-min.js" />
+    <Content Include="Content\Site\vendors\lightbox\simpleLightbox.css" />
+    <Content Include="Content\Site\vendors\lightbox\simpleLightbox.min.js" />
+    <Content Include="Content\Site\vendors\linericon\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\Site\vendors\linericon\style.css" />
+    <Content Include="Content\Site\vendors\nice-select\css\nice-select.css" />
+    <Content Include="Content\Site\vendors\nice-select\css\style.css" />
+    <Content Include="Content\Site\vendors\nice-select\js\jquery.nice-select.js" />
+    <Content Include="Content\Site\vendors\nice-select\js\jquery.nice-select.min.js" />
+    <Content Include="Content\Site\vendors\owl-carousel\assets\ajax-loader.gif" />
+    <Content Include="Content\Site\vendors\owl-carousel\assets\animated.css" />
+    <Content Include="Content\Site\vendors\owl-carousel\assets\owl.carousel.css" />
+    <Content Include="Content\Site\vendors\owl-carousel\owl.carousel.min.css" />
+    <Content Include="Content\Site\vendors\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HouseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoomChargesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RoomsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Site\Controllers\BookingController.cs" />
+    <Compile Include="Areas\Site\Controllers\GuestInfoController.cs" />
+    <Compile Include="Areas\Site\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Site\Controllers\HouseDetailsController.cs" />
+    <Compile Include="Areas\Site\Controllers\LoginGuestController.cs" />
+    <Compile Include="Areas\Site\Controllers\PaymentController.cs" />
+    <Compile Include="Areas\Site\SiteAreaRegistration.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_RoomCategoryByUserId_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_RoomDetails_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectHouseDetailById_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_SelectUserDetailById_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Booking.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_BookingBridge.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_CardDetails.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Category.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Guest.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_House.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Payment.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_RoomCharges.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_RoomsDetails.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_Type.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbl_User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Site\Views\web.config" />
+    <Content Include="Content\Admin\lib\advanced-datatable\images\Sorting icons.psd" />
+    <Content Include="Content\Admin\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Admin\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Admin\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Admin\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Admin\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Admin\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Admin\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Admin\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Admin\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\House\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\House\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\House\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\House\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\House\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Type\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Type\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Type\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Type\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Type\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Room\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Room\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Room\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Room\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Room\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Site\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Site\Views\Home\Index.cshtml" />
+    <Content Include="Content\Site\css\style.css %28Mohammad Rocky%27s conflicted copy 2018-05-08%29.map" />
+    <Content Include="Content\Site\css\style.css.map" />
+    <Content Include="Content\Site\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Site\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Site\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Site\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Site\fonts\FontAwesome.otf" />
+    <Content Include="Content\Site\image\banner\banner-2_tmp18321" />
+    <Content Include="Content\Site\image\elements\_DS_Store" />
+    <Content Include="Content\Site\image\favicon_tmp18091" />
+    <Content Include="Content\Site\scss\style.scss" />
+    <Content Include="Content\Site\scss\_accomodation.scss" />
+    <Content Include="Content\Site\scss\_banner.scss" />
+    <Content Include="Content\Site\scss\_blog.scss" />
+    <Content Include="Content\Site\scss\_button.scss" />
+    <Content Include="Content\Site\scss\_contact.scss" />
+    <Content Include="Content\Site\scss\_elements.scss" />
+    <Content Include="Content\Site\scss\_footer.scss" />
+    <Content Include="Content\Site\scss\_header.scss" />
+    <Content Include="Content\Site\scss\_predefine.scss" />
+    <Content Include="Content\Site\scss\_testimonial.scss" />
+    <Content Include="Content\Site\scss\_variables.scss" />
+    <Content Include="Content\Site\vendors\linericon\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\Site\vendors\linericon\fonts\Linearicons-Free.ttf" />
+    <Content Include="Content\Site\vendors\linericon\fonts\Linearicons-Free.woff" />
+    <Content Include="Content\Site\vendors\linericon\fonts\Linearicons-Free.woff2" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\House\SearchHotel.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\SearchOwner.cshtml" />
+    <Content Include="Views\Login\SignUp.cshtml" />
+    <Content Include="Areas\Site\Views\Home\HotelByCity.cshtml" />
+    <Content Include="Areas\Admin\Views\Rooms\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Rooms\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Rooms\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Rooms\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Rooms\Index.cshtml" />
+    <Content Include="Areas\Site\Views\HouseDetails\Index.cshtml" />
+    <Content Include="Areas\Site\Views\Home\RoomDetails.cshtml" />
+    <Content Include="Areas\Site\Views\GuestInfo\Index.cshtml" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Site\Views\Booking\Create.cshtml" />
+    <Content Include="Areas\Site\Views\Booking\Delete.cshtml" />
+    <Content Include="Areas\Site\Views\Booking\Details.cshtml" />
+    <Content Include="Areas\Site\Views\Booking\Edit.cshtml" />
+    <Content Include="Areas\Site\Views\Booking\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\RoomCharges\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\RoomCharges\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\RoomCharges\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\RoomCharges\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\RoomCharges\Index.cshtml" />
+    <Content Include="Areas\Site\Views\LoginGuest\Index.cshtml" />
+    <Content Include="Areas\Site\Views\Payment\Payment.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Site\Models\" />
+    <Folder Include="Content\HotelImg\" />
+    <Folder Include="Content\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61213</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61213/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.4.0-beta3-final\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.4.0-beta3-final\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0-preview2-19525-03\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

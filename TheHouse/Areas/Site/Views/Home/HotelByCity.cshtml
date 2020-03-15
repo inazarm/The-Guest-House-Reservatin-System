@@ -1,0 +1,18 @@
+﻿@model IEnumerable<TheHouse.Models.tbl_House>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-sm-6">
+        <div class="accomodation_item text-center">
+            <div class="hotel_img">
+                <img class="thumb" src="~/Content/HotelImg/@item.H_Image" alt="House Image" height="300">
+                <a href="RoomDetails?id=@item.H_ID&name=@item.H_Name" class="btn theme_btn button_hover">Details</a>
+                @*<a href="@Url.Action("RoomDetails", new { id = item.H_ID })" class="btn theme_btn button_hover">Details</a>*@
+            </div>
+            <div class="details">
+                <a href="#"><h4 class="sec_h4">@item.H_Name</h4></a>
+                <h5>@item.H_City <br /><small>@item.H_Address</small></h5>
+            </div>
+        </div>
+    </div>
+}

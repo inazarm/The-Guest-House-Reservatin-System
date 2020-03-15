@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TheHouse.Models.tbl_User>
+
+@foreach (var item in Model)
+{
+
+    <tr>
+        <td><img src="~/Content/ProfileImg/@item.UserImage" height="70" width="60" class="img img-rounded" alt="No Image" /></td>
+        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+        <td>@Html.DisplayFor(modelItem => item.UserEmail)</td>
+        <td>@Html.DisplayFor(modelItem => item.UserPass) </td>
+        <td>@Html.DisplayFor(modelItem => item.UserContact) </td>
+        <td>@Html.DisplayFor(modelItem => item.UserAddress) </td>
+        <td>@Html.DisplayFor(modelItem => item.CreatedDate) </td>
+        <td>@Html.DisplayFor(modelItem => item.UserType) </td>
+        <td>@Html.DisplayFor(modelItem => item.isActive)</td>
+        <td>
+            <a href="@Url.Action("Edit","Users",new{id=item.User_Id})"><span class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></span></a>
+            <a href="@Url.Action("Delete","Users",new{id=item.User_Id})"><span class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></span></a>
+        </td>
+    </tr>
+}

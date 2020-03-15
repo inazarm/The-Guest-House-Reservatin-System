@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TheHouse.Models.tbl_User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="row mt">
+    <div class="col-md-12">
+        <div class="content-panel">
+            <h4 class="text-uppercase"><i class="fa fa-user"></i>  User Details</h4>
+            <div class="fa fa-user-plus"><span class="text-uppercase">@Html.ActionLink("Add New User", "Create")</span></div><hr>
+            <table class="table table-striped table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th><i class="fa fa-image"></i>IMAGE</th>
+                        <th><i class="fa fa-hotel"></i> NAME </th>
+                        <th><i class="fa fa-home"></i> EMAIL</th>
+                        <th><i class="fa fa-location-arrow"></i> PASSWORD</th>
+                        <th><i class="fa fa-address-book"></i> PHONE</th>
+                        <th><i class="fa fa-address-book"></i> ADDRESS</th>
+                        <th><i class="fa fa-male"></i> CREATION DATE</th>
+                        <th><i class="fa fa-male"></i> ROLE</th>
+                        <th><i class=" fa fa-square"></i> STATUS</th>
+                        <th><i class="fa fa-edit"></i> Action<th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td class="text-center"><img src="~/Content/ProfileImg/@item.UserImage" height="90" width="75" class="img-fluid" alt="No Image" /></td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.FullName)</td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.UserEmail)</td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.UserPass) </td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.UserContact) </td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.UserAddress) </td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.CreatedDate) </td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.UserType) </td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.isActive)</td>
+                            <td>
+                                <a href="@Url.Action("Edit","User",new{id=item.User_Id})"><span class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></span></a>
+                                <a href="@Url.Action("Delete","User",new{id=item.User_Id})"><span class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></span></a>
+                                @*<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i><a href="@Url.Action("Delete","House")"></a></button>*@
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+        <!-- /content-panel -->
+    </div>
+    <!-- /col-md-12 -->
+</div>

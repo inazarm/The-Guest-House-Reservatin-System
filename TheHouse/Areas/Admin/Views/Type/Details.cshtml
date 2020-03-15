@@ -1,0 +1,55 @@
+﻿@model TheHouse.Models.tbl_Type
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <section id="main-content">
+        <section class="wrapper">
+            <h2>Room Type Information</h2>
+
+            <div>
+                <h4>View Details</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Type_Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Type_Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Type_Description)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Type_Description)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Type_Status)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Type_Status)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.tbl_Category.Cat_Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tbl_Category.Cat_Name)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Type_Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+            </section>
+        </section>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="af6e50e5f12341bb93b117d862e8402d" Name="Diagram1">
+        <EntityTypeShape EntityType="TheHouseModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_Category" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_Guest" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_House" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_RoomsDetails" Width="1.5" PointX="9.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_Type" Width="1.5" PointX="7.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_User" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_Category_tbl_House" ManuallyRouted="false" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_RoomsDetails_tbl_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_Type_tbl_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_House_tbl_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_RoomsDetails_tbl_House" ManuallyRouted="false" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_RoomsDetails_tbl_Type" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_RoomCharges" Width="1.5" PointX="9.75" PointY="14.625" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_RoomCharges_tbl_Category" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_RoomCharges_tbl_Type" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_BookingBridge" Width="1.5" PointX="9.625" PointY="5.625" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_BookingBridge_tbl_Guest" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_BookingBridge_tbl_House" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_BookingBridge_tbl_RoomsDetails" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_Booking" Width="1.5" PointX="5.375" PointY="5" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_BookingBridge_tbl_Booking" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_Payment" Width="1.5" PointX="11.875" PointY="6.125" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_Payment_tbl_BookingBridge" />
+        <EntityTypeShape EntityType="TheHouseModel.tbl_CardDetails" Width="1.5" PointX="5.25" PointY="14.375" />
+        <AssociationConnector Association="TheHouseModel.FK_tbl_CardDetails_tbl_Guest" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,51 @@
+﻿@model TheHouse.Models.tbl_RoomCharges
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_RoomCharges</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Charges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Charges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Category.Cat_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Category.Cat_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Type.Type_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Type.Type_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RC_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

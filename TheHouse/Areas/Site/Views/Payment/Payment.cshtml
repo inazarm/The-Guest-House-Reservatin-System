@@ -1,0 +1,143 @@
+﻿@model TheHouse.Models.tbl_CardDetails
+
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Areas/Site/Views/Shared/_Layout.cshtml";
+}
+
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>tbl_Payment</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PK_BookingBridgeID, "PK_BookingBridgeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PK_BookingBridgeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PK_BookingBridgeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Total_Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Total_Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Total_Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle">Booking Information & Payment Details </h2>
+        </div>
+    </div>
+</section>
+<br />
+<div class="container register">
+    <div class="row">
+        <div class="col-md-2 register-left">
+        </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true"><b class="text-uppercase">Your Selected Room Details</b></a>
+                </li>
+                <li class="nav-item"><b class="text-uppercase">Fill Payment Details</b></li>
+            </ul>
+            <!--================Breadcrumb Area =================-->
+            @using (Html.BeginForm("Index", "GuestInfo", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading"></h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                @{
+                                    var RoomDetails = (TheHouse.Models.tbl_RoomsDetails)Session["RD"];
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td class="header">Guest House Name</td>
+                                            <td>@RoomDetails.tbl_House.H_Name</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Room Number</td>
+                                            <td>@RoomDetails.R_Id</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Room Category</td>
+                                            <td>@RoomDetails.tbl_Category.Cat_Name</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Room Type</td>
+                                            <td>@RoomDetails.tbl_Type.Type_Name</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Room Capacity</td>
+                                            <td>@RoomDetails.R_Capacity Person</td>
+                                        </tr>
+
+                                    </table>
+
+                                }
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="label-theme">Select Card Type</label>
+                                    @Html.DropDownListFor(model=>model.Card_Type,new List<SelectListItem>
+                                     {
+                                         new SelectListItem{ Text="Master Card", Value = "1" },
+                                         new SelectListItem{ Text="Visa Card", Value = "2" },
+                                         new SelectListItem{ Text="Visa Electron", Value = "3" },
+                                     })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Card_Number, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Card Number", @Required = "True" } })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.ExpiryDate, new { htmlAttributes = new { @class = "form-control", @type = "Date", @placeholder = "Select Expiry Date", @Required = "True" } })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.NameOnCard, new { htmlAttributes = new { @class = "form-control", @placeholder = "Card Holder Name", @Required = "True" } })
+
+                                </div>
+                                <input type="submit" class="btn btn-dark" value="Proceed To Confirmation" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+        </div>
+    </div>
+</div>

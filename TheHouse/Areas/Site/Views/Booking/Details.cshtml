@@ -1,0 +1,91 @@
+﻿@model TheHouse.Models.tbl_Booking
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Site/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_Booking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.B_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.B_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_Guest.G_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_Guest.G_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_House.H_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_House.H_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_RoomsDetails.R_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_RoomsDetails.R_Desc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.B_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

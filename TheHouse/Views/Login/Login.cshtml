@@ -1,0 +1,74 @@
+﻿@model TheHouse.Models.tbl_User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Login</title>
+    <!-- Favicons -->
+    <link href="~/Content/Admin/img/favicon.png" rel="icon">
+    <link href="~/Content/Admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/Admin/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Content/Admin/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/Content/Admin/css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/style-responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="login-page">
+        <div class="container">
+            <div class="form-login">
+                @using (Html.BeginForm())
+                {
+                    <h2 class="form-login-heading">sign in now</h2>
+                <div class="login-wrap">
+                    @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control",@type="Email",@required="true", @placeholder = "Email Address", @autofocus = "True" } })
+                    @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+                    <br>
+                    @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control",@required="true", type = "Password", @placeholder = "Password" } })
+                    @Html.ValidationMessageFor(model => model.UserPass, "", new { @class = "text-danger" })
+                    <label class="checkbox">        
+                        <span class="pull-right">
+                            <a data-toggle="modal" href="#"> Forgot Password?</a>
+                        </span><br />
+                    </label>
+                    <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+                    <hr><hr />
+                    <div class="registration">
+                        Don't have an account yet?<br />
+                        <a class="" href="@Url.Action("SignUp", "Login", new { area = "" })">
+                            Create an account
+                        </a>
+                    </div>
+                    <hr />
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Content/Admin/lib/jquery/jquery.min.js"></script>
+    <script src="~/Content/Admin/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="~/Content/Admin/lib/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("~/Content/Admin/img/login-bg.jpg", {
+      speed: 500
+    });
+    </script>
+</body>
+
+</html>
+

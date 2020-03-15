@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TheHouse.Models.tbl_RoomsDetails>
+@{
+    ViewBag.Title = "RoomDetails";
+    Layout = "~/Areas/Site/Views/Shared/_Layout.cshtml";
+}
+@*@{
+    TheHouse.Models.TheHouseEntities obj = new TheHouse.Models.TheHouseEntities();
+    var HouseName = obj.tbl_House.SingleOrDefault(); }*@
+
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle">@TempData["HouseName"]</h2>
+            <ol class="breadcrumb">
+                <li><a href="index.html">@TempData["HouseName"]</a></li>
+                <li class="active">Rooms Details</li>
+            </ol>
+        </div>
+    </div>
+</section>
+   
+<!--================Breadcrumb Area =================-->
+<!--================ House Rooms Details Area =================-->
+<section class="blog_categorie_area">
+    <div class="container" style="overflow:hidden">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <table style="float:left">
+                    <tr>
+                        <td><img src="~/Content/RoomImages/@item.R_Image"  height="250" width="250"/></td>
+                    </tr>
+                </table>
+                <table class="table table-responsive" style="float:left">
+                    <tr>
+                        <td>@item.tbl_Type.Type_Name</td>
+                        </tr>
+                    <tr>
+                        <td>@item.R_Desc</td></tr>
+                    <tr>
+                        <td><a href="@Url.Action("Index","GuestInfo",new {@Rid=item.R_Id,@TypeId=@item.tbl_Type.Type_Name,@RoomDes=@item.R_Desc})" class="btn theme_btn button_hover">Book</a></td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            }
+        </div>
+    </div>
+</section>
+<!--================House Rooms Details Area =================-->
