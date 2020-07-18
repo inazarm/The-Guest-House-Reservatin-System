@@ -304,7 +304,7 @@ D:\GitHup-Projects\TheHouse - Working\TheHouse\bin\System.Web.Razor.xml
 D:\GitHup-Projects\TheHouse - Working\TheHouse\bin\System.Web.WebPages.xml
 D:\GitHup-Projects\TheHouse - Working\TheHouse\bin\System.Web.WebPages.Deployment.xml
 D:\GitHup-Projects\TheHouse - Working\TheHouse\bin\System.Web.WebPages.Razor.xml
-D:\GitHup-Projects\TheHouse - Working\TheHouse\obj\Debug\TheHouse.csprojAssemblyReference.cache
+D:\GitHup-Projects\TheHouse - Working\TheHouse\obj\Debug\TheHouse.csproj.CoreCompileInputs.cache
 D:\GitHup-Projects\TheHouse - Working\TheHouse\obj\Debug\TheHouse.csproj.CopyComplete
 D:\GitHup-Projects\TheHouse - Working\TheHouse\obj\Debug\TheHouse.dll
 D:\GitHup-Projects\TheHouse - Working\TheHouse\obj\Debug\TheHouse.pdb

@@ -26,10 +26,10 @@ namespace TheHouse.Models
         public Nullable<int> FK_RoomID { get; set; }
         public Nullable<int> FK_GuestID { get; set; }
     
+        public virtual tbl_Booking tbl_Booking { get; set; }
         public virtual tbl_Guest tbl_Guest { get; set; }
         public virtual tbl_House tbl_House { get; set; }
         public virtual tbl_RoomsDetails tbl_RoomsDetails { get; set; }
-        public virtual tbl_Booking tbl_Booking { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Payment> tbl_Payment { get; set; }
     }

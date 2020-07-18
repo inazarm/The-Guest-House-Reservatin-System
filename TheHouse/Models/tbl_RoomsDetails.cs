@@ -29,10 +29,10 @@ namespace TheHouse.Models
         public string R_Image { get; set; }
         public Nullable<bool> R_Status { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_BookingBridge> tbl_BookingBridge { get; set; }
         public virtual tbl_Category tbl_Category { get; set; }
         public virtual tbl_House tbl_House { get; set; }
         public virtual tbl_Type tbl_Type { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_BookingBridge> tbl_BookingBridge { get; set; }
     }
 }

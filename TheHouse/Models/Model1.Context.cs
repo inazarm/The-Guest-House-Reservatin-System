@@ -27,18 +27,16 @@ namespace TheHouse.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<tbl_Booking> tbl_Booking { get; set; }
+        public virtual DbSet<tbl_BookingBridge> tbl_BookingBridge { get; set; }
         public virtual DbSet<tbl_Category> tbl_Category { get; set; }
         public virtual DbSet<tbl_Guest> tbl_Guest { get; set; }
         public virtual DbSet<tbl_House> tbl_House { get; set; }
+        public virtual DbSet<tbl_Payment> tbl_Payment { get; set; }
+        public virtual DbSet<tbl_RoomCharges> tbl_RoomCharges { get; set; }
         public virtual DbSet<tbl_RoomsDetails> tbl_RoomsDetails { get; set; }
         public virtual DbSet<tbl_Type> tbl_Type { get; set; }
         public virtual DbSet<tbl_User> tbl_User { get; set; }
-        public virtual DbSet<tbl_RoomCharges> tbl_RoomCharges { get; set; }
-        public virtual DbSet<tbl_BookingBridge> tbl_BookingBridge { get; set; }
-        public virtual DbSet<tbl_Booking> tbl_Booking { get; set; }
-        public virtual DbSet<tbl_Payment> tbl_Payment { get; set; }
-        public virtual DbSet<tbl_CardDetails> tbl_CardDetails { get; set; }
     
         public virtual ObjectResult<sp_RoomCategoryByUserId_Result> sp_RoomCategoryByUserId(Nullable<int> userId)
         {

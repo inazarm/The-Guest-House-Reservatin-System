@@ -17,9 +17,9 @@ namespace TheHouse.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_House()
         {
+            this.tbl_BookingBridge = new HashSet<tbl_BookingBridge>();
             this.tbl_Category = new HashSet<tbl_Category>();
             this.tbl_RoomsDetails = new HashSet<tbl_RoomsDetails>();
-            this.tbl_BookingBridge = new HashSet<tbl_BookingBridge>();
         }
     
         public int H_ID { get; set; }
@@ -33,11 +33,11 @@ namespace TheHouse.Models
         public Nullable<bool> H_Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_BookingBridge> tbl_BookingBridge { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Category> tbl_Category { get; set; }
         public virtual tbl_User tbl_User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_RoomsDetails> tbl_RoomsDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_BookingBridge> tbl_BookingBridge { get; set; }
     }
 }

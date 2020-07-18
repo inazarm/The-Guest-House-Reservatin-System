@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TheHouseDbModelStoreContainer" CdmEntityContainer="TheHouseEntities">
+    <EntitySetMapping Name="tbl_Booking">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_Booking">
+        <MappingFragment StoreEntitySet="tbl_Booking">
+          <ScalarProperty Name="B_Id" ColumnName="B_Id" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="TotalPerson" ColumnName="TotalPerson" />
+          <ScalarProperty Name="BookedBy" ColumnName="BookedBy" />
+          <ScalarProperty Name="Booking_Date" ColumnName="Booking_Date" />
+          <ScalarProperty Name="B_Status" ColumnName="B_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BookingBridge">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_BookingBridge">
+        <MappingFragment StoreEntitySet="tbl_BookingBridge">
+          <ScalarProperty Name="BB_ID" ColumnName="BB_ID" />
+          <ScalarProperty Name="FK_BookingID" ColumnName="FK_BookingID" />
+          <ScalarProperty Name="FK_HouseID" ColumnName="FK_HouseID" />
+          <ScalarProperty Name="FK_RoomID" ColumnName="FK_RoomID" />
+          <ScalarProperty Name="FK_GuestID" ColumnName="FK_GuestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Category">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_Category">
+        <MappingFragment StoreEntitySet="tbl_Category">
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+          <ScalarProperty Name="FK_HouseID" ColumnName="FK_HouseID" />
+          <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+          <ScalarProperty Name="Cat_Description" ColumnName="Cat_Description" />
+          <ScalarProperty Name="Cat_Status" ColumnName="Cat_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Guest">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_Guest">
+        <MappingFragment StoreEntitySet="tbl_Guest">
+          <ScalarProperty Name="G_Id" ColumnName="G_Id" />
+          <ScalarProperty Name="G_Name" ColumnName="G_Name" />
+          <ScalarProperty Name="G_Email" ColumnName="G_Email" />
+          <ScalarProperty Name="G_Pass" ColumnName="G_Pass" />
+          <ScalarProperty Name="G_Phone" ColumnName="G_Phone" />
+          <ScalarProperty Name="G_Gender" ColumnName="G_Gender" />
+          <ScalarProperty Name="G_City" ColumnName="G_City" />
+          <ScalarProperty Name="G_Country" ColumnName="G_Country" />
+          <ScalarProperty Name="G_CNIC" ColumnName="G_CNIC" />
+          <ScalarProperty Name="G_Passport" ColumnName="G_Passport" />
+          <ScalarProperty Name="G_Status" ColumnName="G_Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_House">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_House">
+        <MappingFragment StoreEntitySet="tbl_House">
+          <ScalarProperty Name="H_ID" ColumnName="H_ID" />
+          <ScalarProperty Name="FK_UserID" ColumnName="FK_UserID" />
+          <ScalarProperty Name="H_Name" ColumnName="H_Name" />
+          <ScalarProperty Name="H_Location" ColumnName="H_Location" />
+          <ScalarProperty Name="H_City" ColumnName="H_City" />
+          <ScalarProperty Name="H_Address" ColumnName="H_Address" />
+          <ScalarProperty Name="H_NoOfRoom" ColumnName="H_NoOfRoom" />
+          <ScalarProperty Name="H_Image" ColumnName="H_Image" />
+          <ScalarProperty Name="H_Status" ColumnName="H_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Payment">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_Payment">
+        <MappingFragment StoreEntitySet="tbl_Payment">
+          <ScalarProperty Name="P_Id" ColumnName="P_Id" />
+          <ScalarProperty Name="PK_BookingBridgeID" ColumnName="PK_BookingBridgeID" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoomCharges">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_RoomCharges">
+        <MappingFragment StoreEntitySet="tbl_RoomCharges">
+          <ScalarProperty Name="RC_Id" ColumnName="RC_Id" />
+          <ScalarProperty Name="FK_TypeID" ColumnName="FK_TypeID" />
+          <ScalarProperty Name="FK_CatID" ColumnName="FK_CatID" />
+          <ScalarProperty Name="Charges" ColumnName="Charges" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoomsDetails">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_RoomsDetails">
+        <MappingFragment StoreEntitySet="tbl_RoomsDetails">
+          <ScalarProperty Name="R_Id" ColumnName="R_Id" />
+          <ScalarProperty Name="FK_HouseID" ColumnName="FK_HouseID" />
+          <ScalarProperty Name="FK_TypeID" ColumnName="FK_TypeID" />
+          <ScalarProperty Name="FK_CateID" ColumnName="FK_CateID" />
+          <ScalarProperty Name="R_Desc" ColumnName="R_Desc" />
+          <ScalarProperty Name="R_Capacity" ColumnName="R_Capacity" />
+          <ScalarProperty Name="R_Image" ColumnName="R_Image" />
+          <ScalarProperty Name="R_Status" ColumnName="R_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Type">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_Type">
+        <MappingFragment StoreEntitySet="tbl_Type">
+          <ScalarProperty Name="Type_Id" ColumnName="Type_Id" />
+          <ScalarProperty Name="FK_CateID" ColumnName="FK_CateID" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="Type_Description" ColumnName="Type_Description" />
+          <ScalarProperty Name="Type_Status" ColumnName="Type_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_User">
+      <EntityTypeMapping TypeName="TheHouseDbModel.tbl_User">
+        <MappingFragment StoreEntitySet="tbl_User">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+          <ScalarProperty Name="UserContact" ColumnName="UserContact" />
+          <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_RoomCategoryByUserId" FunctionName="TheHouseDbModel.Store.sp_RoomCategoryByUserId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TheHouseDbModel.sp_RoomCategoryByUserId_Result">
+          <ScalarProperty Name="H_ID" ColumnName="H_ID" />
+          <ScalarProperty Name="H_Name" ColumnName="H_Name" />
+          <ScalarProperty Name="Cat_Description" ColumnName="Cat_Description" />
+          <ScalarProperty Name="Cat_Id" ColumnName="Cat_Id" />
+          <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+          <ScalarProperty Name="Cat_Status" ColumnName="Cat_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_RoomDetails" FunctionName="TheHouseDbModel.Store.sp_RoomDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TheHouseDbModel.sp_RoomDetails_Result">
+          <ScalarProperty Name="H_Name" ColumnName="H_Name" />
+          <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="R_Id" ColumnName="R_Id" />
+          <ScalarProperty Name="R_Desc" ColumnName="R_Desc" />
+          <ScalarProperty Name="R_Capacity" ColumnName="R_Capacity" />
+          <ScalarProperty Name="R_Status" ColumnName="R_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SelectHouseDetailById" FunctionName="TheHouseDbModel.Store.sp_SelectHouseDetailById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TheHouseDbModel.sp_SelectHouseDetailById_Result">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="H_ID" ColumnName="H_ID" />
+          <ScalarProperty Name="H_Name" ColumnName="H_Name" />
+          <ScalarProperty Name="H_Location" ColumnName="H_Location" />
+          <ScalarProperty Name="H_City" ColumnName="H_City" />
+          <ScalarProperty Name="H_Address" ColumnName="H_Address" />
+          <ScalarProperty Name="H_NoOfRoom" ColumnName="H_NoOfRoom" />
+          <ScalarProperty Name="H_Image" ColumnName="H_Image" />
+          <ScalarProperty Name="H_Status" ColumnName="H_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SelectUserDetailById" FunctionName="TheHouseDbModel.Store.sp_SelectUserDetailById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TheHouseDbModel.sp_SelectUserDetailById_Result">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPass" ColumnName="UserPass" />
+          <ScalarProperty Name="UserContact" ColumnName="UserContact" />
+          <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -17,7 +17,6 @@ namespace TheHouse.Areas.Site.Controllers
          
             
         }
-
         public PartialViewResult HotelByCity(string q)
         {
             try

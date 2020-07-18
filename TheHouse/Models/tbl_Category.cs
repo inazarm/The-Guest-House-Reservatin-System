@@ -17,9 +17,9 @@ namespace TheHouse.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_Category()
         {
+            this.tbl_RoomCharges = new HashSet<tbl_RoomCharges>();
             this.tbl_RoomsDetails = new HashSet<tbl_RoomsDetails>();
             this.tbl_Type = new HashSet<tbl_Type>();
-            this.tbl_RoomCharges = new HashSet<tbl_RoomCharges>();
         }
     
         public int Cat_Id { get; set; }
@@ -30,10 +30,10 @@ namespace TheHouse.Models
     
         public virtual tbl_House tbl_House { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_RoomCharges> tbl_RoomCharges { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_RoomsDetails> tbl_RoomsDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Type> tbl_Type { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_RoomCharges> tbl_RoomCharges { get; set; }
     }
 }
